@@ -9,19 +9,54 @@ const StateCard = ({
 }: StateCardProps) => {
   return (
     <div
-      className="relative min-w-[220px] h-[360px] rounded-[28px] overflow-hidden flex items-end"
+      className="
+        group
+        relative
+        h-[260px]
+        w-[180px]
+        shrink-0
+        overflow-hidden
+        rounded-[24px]
+        cursor-pointer
+
+        sm:h-[320px]
+        sm:w-[220px]
+
+        md:h-[360px]
+        md:w-[280px]
+        md:rounded-[28px]
+      "
     >
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="
+          absolute
+          inset-0
+          h-full
+          w-full
+          object-cover
+          transition-transform
+          duration-500
+          group-hover:scale-105
+        "
       />
 
-      {/* overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-      <div className="relative z-10 p-5">
-        <h3 className="text-white text-2xl font-semibold">
+      {/* Content */}
+      <div className="absolute bottom-4 left-4 right-4 z-10 md:bottom-5 md:left-5 md:right-5">
+        <h3
+          className="
+            text-lg
+            font-bold
+            text-white
+            leading-tight
+
+            md:text-3xl
+          "
+        >
           {title}
         </h3>
       </div>

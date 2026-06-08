@@ -7,6 +7,7 @@ import HotDeals from './components/home/HotDeals/HotDeals'
 import Events from './components/home/Events/Events'
 import HeroSection from './components/home/HeroSection'
 import QuickActions from './components/home/QuickActions/QuickActions'
+import JourneyCTA from './components/home/JourneyCTA'
   
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
       <ExploreStates />
       <HotDeals />
       <Events />
+      <JourneyCTA />
+
     </>
   )
 }

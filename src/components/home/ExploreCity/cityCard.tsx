@@ -12,37 +12,122 @@ function CityCard({
   index,
 }: CityCardProps) {
   return (
-    <div className="group relative h-[280px] sm:h-[320px] md:h-[340px] w-full max-w-[280px] overflow-hidden rounded-[20px] md:rounded-[28px] cursor-pointer mx-auto shadow-md">
+    <div
+      className="
+        group
+        relative
+        h-[220px]
+        w-[140px]
+        shrink-0
+        overflow-hidden
+        rounded-[20px]
+        shadow-md
+        cursor-pointer
 
+        sm:h-[280px]
+        sm:w-[180px]
+
+        md:h-[340px]
+        md:w-[280px]
+        md:rounded-[28px]
+      "
+    >
+      {/* Background Image */}
       <img
         src={image}
         alt={city}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="
+          h-full
+          w-full
+          object-cover
+          transition-transform
+          duration-500
+          group-hover:scale-105
+        "
       />
 
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
 
-      <div className="absolute right-3 top-3 flex h-[28px] w-[40px] md:h-[34px] md:w-[48px] items-center justify-center rounded-[8px] md:rounded-[12px] border border-white/20 bg-white/15 backdrop-blur-md">
-        <span className="text-xs md:text-sm font-semibold text-white">
+      {/* Index Badge */}
+      <div
+        className="
+          absolute
+          right-3
+          top-3
+          flex
+          h-7
+          w-10
+          items-center
+          justify-center
+          rounded-xl
+          border
+          border-white/20
+          bg-white/15
+          backdrop-blur-md
+
+          md:h-9
+          md:w-12
+        "
+      >
+        <span className="text-xs font-semibold text-white md:text-sm">
           {String(index).padStart(2, '0')}
         </span>
       </div>
 
-      <div className="absolute bottom-4 left-4 right-4">
-        <h3 className="mb-1.5 text-[20px] md:text-[24px] font-bold text-white leading-tight tracking-tight">
+      {/* Content */}
+      <div className="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5">
+        <h3
+          className="
+            mb-2
+            text-lg
+            font-bold
+            leading-tight
+            text-white
+
+            md:text-3xl
+          "
+        >
           {city}
         </h3>
 
-        <div className="flex flex-row items-center justify-between gap-1">
-
+        <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-400 shrink-0" />
-            <p className="text-[11px] md:text-[13px] text-white/90 font-medium whitespace-nowrap">
+            <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+
+            <p
+              className="
+                text-[10px]
+                font-medium
+                text-white/90
+
+                md:text-[13px]
+              "
+            >
               {destinations} places
             </p>
           </div>
 
-          <button className="rounded-full bg-white px-3 py-1.5 md:px-4 md:py-2 text-[11px] md:text-[13px] font-bold text-black transition hover:scale-105 active:scale-95 shrink-0">
+          <button
+            className="
+              rounded-full
+              bg-white
+              px-2.5
+              py-1
+
+              text-[10px]
+              font-bold
+              text-black
+
+              transition
+              hover:scale-105
+              active:scale-95
+
+              md:px-4
+              md:py-2
+              md:text-[13px]
+            "
+          >
             Explore
           </button>
         </div>

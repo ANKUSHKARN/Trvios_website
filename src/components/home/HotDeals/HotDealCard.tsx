@@ -28,81 +28,117 @@ const HotDealCard = ({
   rating,
 }: HotDealCardProps) => {
   return (
-    <div className="bg-white rounded-[20px] overflow-hidden shadow-md max-w-[280px] w-full mx-auto border border-gray-100 transition-all duration-300 hover:shadow-xl">
-      
-      <div className="relative h-[125px] sm:h-[135px] w-full shrink-0">
+    <div
+      className="
+        group
+        w-[260px]
+        shrink-0
+        overflow-hidden
+        rounded-[24px]
+        bg-white
+        shadow-md
+        border
+        border-gray-100
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
+
+        sm:w-[300px]
+
+        md:w-[320px]
+      "
+    >
+      {/* Image */}
+      <div className="relative h-[180px] sm:h-[220px] md:h-[240px]">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover"
+          className="
+            h-full
+            w-full
+            object-cover
+            transition-transform
+            duration-500
+            group-hover:scale-105
+          "
         />
 
-        <div className="absolute top-2 left-2 bg-black/50 backdrop-blur-md rounded-full px-2 py-1 flex items-center gap-0.5">
-          <Tag size={10} className="text-white shrink-0" />
-          <span className="text-white text-[9px] font-bold whitespace-nowrap">
+        {/* Discount */}
+        <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-black/40 px-3 py-1.5 backdrop-blur-md">
+          <Tag size={12} className="text-white" />
+          <span className="text-xs font-bold text-white">
             {discount}
           </span>
         </div>
 
-        <button className="absolute top-2 right-2 w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm cursor-pointer hover:scale-105 active:scale-95 transition-transform">
-          <Heart size={12} className="text-violet-500 fill-violet-50" />
+        {/* Wishlist */}
+        <button className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md">
+          <Heart
+            size={16}
+            className="text-violet-500"
+          />
         </button>
 
-        <div className="absolute right-2 bottom-2 bg-black/80 rounded-full px-1.5 py-0.5 flex items-center gap-0.5 shadow-sm">
+        {/* Rating */}
+        <div className="absolute right-3 bottom-3 flex items-center gap-1 rounded-full bg-black/70 px-3 py-1.5">
           <Star
-            size={10}
-            className="fill-yellow-400 text-yellow-400 shrink-0"
+            size={12}
+            className="fill-yellow-400 text-yellow-400"
           />
-          <span className="text-white text-[10px] font-black leading-none">
+          <span className="text-xs font-bold text-white">
             {rating}
           </span>
         </div>
       </div>
 
-      <div className="p-3 flex flex-col bg-white">
-        <div>
-          <h3 className="text-[14px] font-extrabold text-black mb-1 leading-tight tracking-tight truncate">
-            {title}
-          </h3>
+      {/* Content */}
+      <div className="p-4 md:p-5">
+        <h3 className="mb-2 text-lg font-bold text-black line-clamp-2">
+          {title}
+        </h3>
 
-          <div className="flex items-center gap-1 text-gray-500 text-[11px] mb-2.5">
-            <div className="bg-violet-50 p-0.5 rounded-full shrink-0">
-              <MapPin
-                size={10}
-                className="text-violet-500"
-              />
-            </div>
-            <span className="truncate">{location}</span>
-          </div>
+        <div className="mb-4 flex items-center gap-2 text-gray-500">
+          <MapPin
+            size={14}
+            className="text-violet-500"
+          />
+
+          <span className="truncate text-sm">
+            {location}
+          </span>
         </div>
 
-        <div className="border-b border-gray-100 mb-2.5 w-full" />
+        <div className="mb-4 border-t border-gray-100" />
 
-        <div className="flex justify-between items-center gap-1.5">
-          <div className="flex flex-col min-w-0">
-            <p className="text-gray-400 text-[9px] line-through leading-none mb-0.5">
+        <div className="flex items-center justify-between">
+
+          <div>
+            <p className="text-xs text-gray-400 line-through">
               {oldPrice}
             </p>
 
-            <div className="flex items-baseline gap-0.5">
-              <h4 className="text-[16px] font-black leading-none text-black tracking-tight">
+            <div className="flex items-end gap-1">
+              <span className="text-2xl font-black text-black">
                 {newPrice}
-              </h4>
-              <span className="text-gray-500 text-[8px] whitespace-nowrap">
-                /pers
+              </span>
+
+              <span className="text-xs text-gray-500">
+                / person
               </span>
             </div>
           </div>
 
-          <div className="border border-violet-200 bg-violet-50/50 rounded-full px-2 py-1 flex items-center gap-0.5 text-violet-600 shrink-0">
-            <Clock3 size={10} className="shrink-0" />
-            <span className="font-extrabold text-[9px] whitespace-nowrap">
+          <div className="flex items-center gap-1 rounded-full border border-violet-200 bg-violet-50 px-3 py-2 text-violet-600">
+            <Clock3 size={14} />
+
+            <span className="text-xs font-bold">
               {duration}
             </span>
           </div>
+
         </div>
       </div>
-
     </div>
   );
 };

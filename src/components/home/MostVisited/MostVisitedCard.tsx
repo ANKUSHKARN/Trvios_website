@@ -18,60 +18,106 @@ function MostVisitedCard({
   newPrice,
 }: MostVisitedCardProps) {
   return (
-    <div className="group relative h-[280px] sm:h-[320px] md:h-[340px] w-full max-w-[280px] overflow-hidden rounded-[20px] md:rounded-[28px] cursor-pointer mx-auto shadow-md">
+    <div
+      className="
+        group
+        relative
+        h-[300px]
+        w-[260px]
+        shrink-0
+        overflow-hidden
+        rounded-[24px]
+        shadow-md
+        cursor-pointer
 
+        sm:h-[320px]
+        sm:w-[300px]
+
+        md:h-[340px]
+        md:w-[280px]
+        md:rounded-[28px]
+      "
+    >
+      {/* Image */}
       <img
         src={image}
         alt={title}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="
+          h-full
+          w-full
+          object-cover
+          transition-transform
+          duration-500
+          group-hover:scale-105
+        "
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
 
-      <div className="absolute left-3 right-3 top-3 flex items-center justify-between gap-1">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-        <div className="rounded-full bg-white/15 px-2.5 py-1 backdrop-blur-md border border-white/20">
-          <span className="text-[10px] md:text-[11px] font-medium text-white whitespace-nowrap">
+      {/* Top Badges */}
+      <div className="absolute left-3 right-3 top-3 flex items-center justify-between">
+        <div className="rounded-full border border-white/20 bg-black/30 px-3 py-1 backdrop-blur-md">
+          <span className="text-xs font-medium text-white">
             🕒 {duration}
           </span>
         </div>
 
-        <div className="rounded-full bg-white/15 px-2.5 py-1 backdrop-blur-md border border-white/20">
-          <span className="text-[10px] md:text-[11px] font-bold text-white whitespace-nowrap">
+        <div className="rounded-full border border-white/20 bg-black/30 px-3 py-1 backdrop-blur-md">
+          <span className="text-xs font-semibold text-white">
             ⭐ {rating}
           </span>
         </div>
       </div>
 
-      <div className="absolute bottom-3 left-3 right-3 text-white">
-        <h3 className="mb-1 text-[15px] md:text-[17px] font-bold leading-tight tracking-tight truncate">
+      {/* Bottom Content */}
+      <div className="absolute bottom-4 left-4 right-4 text-white">
+        <h3 className="mb-2 line-clamp-2 text-lg font-bold leading-tight md:text-xl">
           {title}
         </h3>
 
-        <div className="mb-2 flex items-center gap-1 text-white/80">
-          <span className="text-[11px] md:text-[13px] shrink-0">📍</span>
-          <p className="text-[11px] md:text-[13px] truncate">{location}</p>
+        <div className="mb-3 flex items-center gap-1 text-white/80">
+          <span>📍</span>
+
+          <p className="truncate text-sm">
+            {location}
+          </p>
         </div>
 
-        <div className="border-t border-white/15 mb-2 w-full"></div>
+        <div className="mb-3 border-t border-white/20" />
 
-        <div className="flex items-center justify-between gap-2">
-
-          <div className="flex flex-col">
-            <p className="text-[10px] md:text-[11px] text-white/60 line-through leading-none mb-0.5">
+        <div className="flex items-end justify-between">
+          <div>
+            {/* Hide old price on mobile */}
+            <p className="hidden text-xs text-white/60 line-through md:block">
               ₹{oldPrice.toLocaleString()}
             </p>
 
             <div className="flex items-baseline gap-1">
-              <span className="text-[18px] md:text-[22px] font-black leading-none tracking-tight">
+              <span className="text-2xl font-black">
                 ₹{newPrice.toLocaleString()}
               </span>
-              <span className="text-[9px] md:text-[10px] text-white/70 whitespace-nowrap">
+
+              <span className="hidden text-xs text-white/70 md:inline">
                 / person
               </span>
             </div>
           </div>
-          
-          <button className="rounded-full bg-white px-3 py-1.5 text-[10px] md:text-[11px] font-bold text-black transition hover:scale-105 active:scale-95 shrink-0">
+
+          <button
+            className="
+              rounded-full
+              bg-white
+              px-4
+              py-2
+              text-xs
+              font-bold
+              text-black
+              transition
+              hover:scale-105
+              active:scale-95
+            "
+          >
             Book Now
           </button>
         </div>
